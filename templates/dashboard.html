@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>MindCare AI Dashboard</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+
+background:#f5f7fb;
+
+}
+
+/* Sidebar */
+
+.sidebar{
+
+position:fixed;
+
+top:0;
+
+left:0;
+
+width:260px;
+
+height:100vh;
+
+background:linear-gradient(
+180deg,
+#667eea,
+#764ba2,
+#00BFA6
+);
+
+padding-top:30px;
+
+box-shadow:0 0 25px rgba(0,0,0,0.15);
+
+}
+
+.logo{
+
+text-align:center;
+
+font-size:30px;
+
+font-weight:700;
+
+color:white;
+
+margin-bottom:40px;
+
+}
+
+.sidebar a{
+
+display:block;
+
+padding:16px 30px;
+
+color:white;
+
+text-decoration:none;
+
+font-size:16px;
+
+transition:0.3s;
+
+}
+
+.sidebar a:hover{
+
+background:rgba(255,255,255,0.15);
+
+padding-left:40px;
+
+}
+
+.sidebar i{
+
+margin-right:12px;
+
+}
+
+
+/* Main Content */
+
+.main{
+
+margin-left:260px;
+
+padding:30px;
+
+}
+
+.header{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+margin-bottom:35px;
+
+}
+
+.header h2{
+
+font-weight:700;
+
+}
+
+.profile{
+
+display:flex;
+
+align-items:center;
+
+gap:15px;
+
+}
+
+.profile img{
+
+width:50px;
+
+height:50px;
+
+border-radius:50%;
+
+}
+
+.profile h5{
+
+margin-bottom:0;
+
+}
+
+.profile p{
+
+font-size:13px;
+
+color:#666;
+
+}
+
+
+/* Cards */
+
+.cards{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+gap:25px;
+
+margin-bottom:35px;
+
+}
+
+.card-box{
+
+background:white;
+
+border-radius:25px;
+
+padding:25px;
+
+box-shadow:0 10px 25px rgba(0,0,0,0.08);
+
+transition:0.3s;
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+.card-box:hover{
+
+transform:translateY(-10px);
+
+}
+
+.card-box i{
+
+font-size:40px;
+
+position:absolute;
+
+top:20px;
+
+right:20px;
+
+opacity:0.2;
+
+}
+
+.card-box h6{
+
+color:#777;
+
+font-size:15px;
+
+}
+
+.card-box h2{
+
+margin-top:10px;
+
+font-weight:700;
+
+}
+
+
+/* Mood Card */
+
+.mood-card{
+
+background:linear-gradient(
+135deg,
+#667eea,
+#764ba2
+);
+
+color:white;
+
+border-radius:25px;
+
+padding:30px;
+
+margin-bottom:35px;
+
+box-shadow:0 10px 25px rgba(0,0,0,0.1);
+
+}
+
+.mood-card h3{
+
+font-weight:700;
+
+}
+
+.emoji{
+
+font-size:70px;
+
+}
+
+
+/* Counseling */
+
+.table-box{
+
+background:white;
+
+padding:25px;
+
+border-radius:25px;
+
+box-shadow:0 10px 25px rgba(0,0,0,0.08);
+
+margin-bottom:35px;
+
+}
+
+.table-box h4{
+
+margin-bottom:20px;
+
+font-weight:600;
+
+}
+
+
+/* Quick Actions */
+
+.quick{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+
+gap:20px;
+
+}
+
+.action{
+
+background:linear-gradient(
+135deg,
+#00BFA6,
+#667eea
+);
+
+padding:25px;
+
+border-radius:20px;
+
+text-align:center;
+
+color:white;
+
+text-decoration:none;
+
+font-size:18px;
+
+font-weight:600;
+
+transition:0.3s;
+
+}
+
+.action:hover{
+
+transform:scale(1.05);
+
+color:white;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+<!-- Sidebar -->
+
+<div class="sidebar">
+
+<div class="logo">
+
+🧠 MindCare AI
+
+</div>
+
+<a href="#">
+
+<i class="bi bi-speedometer2"></i>
+
+Dashboard
+
+</a>
+
+<a href="/assessment">
+
+<i class="bi bi-clipboard2-pulse"></i>
+
+Assessment
+
+</a>
+
+<a href="/mood_tracker">
+
+<i class="bi bi-emoji-smile"></i>
+
+Mood Tracker
+
+</a>
+
+<a href="/emotion_detection">
+
+<i class="bi bi-heart-pulse"></i>
+
+Emotion Detection
+
+</a>
+
+<a href="/chatbot">
+
+<i class="bi bi-robot"></i>
+
+AI Chatbot
+
+</a>
+
+<a href="/counseling">
+
+<i class="bi bi-calendar-check"></i>
+
+Counseling
+
+</a>
+
+<a href="/profile">
+
+<i class="bi bi-person-circle"></i>
+
+Profile
+
+</a>
+
+<a href="/logout">
+
+<i class="bi bi-box-arrow-right"></i>
+
+Logout
+
+</a>
+
+</div>
+
+
+
+<!-- Main -->
+
+<div class="main">
+
+
+<div class="header">
+
+<h2>
+
+Welcome Back 👋
+
+</h2>
+
+<div class="profile">
+
+<img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png">
+
+<div>
+
+<h5>
+
+Indhu Varsha
+
+</h5>
+
+<p>
+
+Student
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- Statistics -->
+
+<div class="cards">
+
+
+<div class="card-box">
+
+<i class="bi bi-activity"></i>
+
+<h6>
+
+Stress Score
+
+</h6>
+
+<h2>
+
+72%
+
+</h2>
+
+</div>
+
+
+
+<div class="card-box">
+
+<i class="bi bi-heart"></i>
+
+<h6>
+
+Anxiety Level
+
+</h6>
+
+<h2>
+
+60%
+
+</h2>
+
+</div>
+
+
+
+<div class="card-box">
+
+<i class="bi bi-emoji-frown"></i>
+
+<h6>
+
+Depression Score
+
+</h6>
+
+<h2>
+
+35%
+
+</h2>
+
+</div>
+
+
+
+<div class="card-box">
+
+<i class="bi bi-shield-check"></i>
+
+<h6>
+
+Risk Level
+
+</h6>
+
+<h2>
+
+Moderate
+
+</h2>
+
+</div>
+
+</div>
+
+
+
+<!-- Mood -->
+
+<div class="mood-card">
+
+<div class="row">
+
+<div class="col-md-8">
+
+<h3>
+
+Today's Mood
+
+</h3>
+
+<p>
+
+You are feeling positive today.
+
+Keep practicing mindfulness and stay focused on your goals.
+
+</p>
+
+</div>
+
+<div class="col-md-4 text-center">
+
+<div class="emoji">
+
+😊
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- Counseling -->
+
+<div class="table-box">
+
+<h4>
+
+Upcoming Counseling Sessions
+
+</h4>
+
+<table class="table table-hover">
+
+<thead>
+
+<tr>
+
+<th>Counselor</th>
+
+<th>Date</th>
+
+<th>Time</th>
+
+<th>Status</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td>
+
+Dr. Priya
+
+</td>
+
+<td>
+
+15-06-2026
+
+</td>
+
+<td>
+
+10:00 AM
+
+</td>
+
+<td>
+
+<span class="badge bg-success">
+
+Scheduled
+
+</span>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+
+Dr. Kumar
+
+</td>
+
+<td>
+
+20-06-2026
+
+</td>
+
+<td>
+
+02:00 PM
+
+</td>
+
+<td>
+
+<span class="badge bg-warning">
+
+Pending
+
+</span>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+
+
+<!-- Quick Actions -->
+
+<h4 class="mb-4">
+
+Quick Actions
+
+</h4>
+
+<div class="quick">
+
+<a href="/assessment" class="action">
+
+Take Assessment
+
+</a>
+
+<a href="/chatbot" class="action">
+
+Talk to AI
+
+</a>
+
+<a href="/mood_tracker" class="action">
+
+Track Mood
+
+</a>
+
+<a href="/counseling" class="action">
+
+Book Counselor
+
+</a>
+
+</div>
+
+
+</div>
+
+</body>
+
+</html>
